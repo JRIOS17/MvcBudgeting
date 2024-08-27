@@ -1,4 +1,9 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using MvcBudgeting.Data;
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<MvcBudgetingContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("MvcBudgetingContext") ?? throw new InvalidOperationException("Connection string 'MvcBudgetingContext' not found.")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
