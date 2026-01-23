@@ -4,5 +4,18 @@
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <br /><br />
+    <form method="pose"></form>
+    <div style="display: grid; grid-template-columns: 50% 50%;">
+    <div>
+        <h3>Returning to look through your previous Expense Reports or edit them? Please click here and provide your username!</h3>
+
+        <a asp-controller="ExpenseSheet" asp-action="Index" class="btn-black">Click here to enter your username!</a>
+    </div>
+    <div>
+        <h3>First time here? Create your expense sheet and get started!</h3>
+
+        <button class="btn-black" onclick="location.href='@Url.Action("Index", "ExpenseSheet")'">Click here to create your Expense Sheet!</button>
+    </div>
+    </div>
 </div>
