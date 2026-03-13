@@ -20,9 +20,13 @@ namespace MvcBudgeting.Controllers
         }
 
         // GET: ExpenseSheets
-        public async Task<IActionResult> Index()
+        //public async Task<IActionResult> Index()
+        //{
+        //    return View(await _context.ExpenseSheets.ToListAsync());
+        //}
+        public IActionResult Index()
         {
-            return View(await _context.ExpenseSheets.ToListAsync());
+            return View(new ExpenseSheet());
         }
 
         // GET: ExpenseSheets/Details/5

@@ -1,12 +1,48 @@
-﻿@model IEnumerable<MvcBudgeting.Models.ExpenseSheet>
+﻿@model MvcBudgeting.Models.ExpenseSheet
 
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>List all of your Expenses here!</h1>
+<br /><br />
+@*Before the form there will be an if/else statement asking the user to setup a username*@
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.Label("Expense Date")
+                </th>
+                <th>
+                    @Html.Label("Expense Category")
+                </th>
+                <th>
+                    @Html.Label("Expense Sub-Category")
+                </th>
+                <th>
+                    @Html.Label("Expense Amount")
+                </th>
+                <th>
+                    @Html.Label("Expense Item")
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <form asp-action="Index">
+        <div class="form-group">
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="UserId" />
+            <div>
+                <partial name="_Expense" />
+            </div>
+        </div>
+    </form>
+</div>
 
-<p>
+@* <p>
     <a asp-action="Create">Create New Expense Record</a>
 </p>
 <table class="table">
@@ -63,3 +99,4 @@
 }
     </tbody>
 </table>
+ *@
