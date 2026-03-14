@@ -157,5 +157,10 @@ namespace MvcBudgeting.Controllers
         {
             return _context.ExpenseSheets.Any(e => e.Id == id);
         }
+
+        public ActionResult DisplayNewExpense()
+        {
+            return PartialView("_Expense");
+        }
     }
 }
