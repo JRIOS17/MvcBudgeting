@@ -1,10 +1,6 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
-@model MvcBudgeting.Models.ExpenseSheet
- <div>
+﻿@model MvcBudgeting.Models.ExpenseSheet
+
+<div>
     @Html.HiddenFor(expenseItem => Model.Id, "Placeholder")
     @Html.HiddenFor(exoenseItem => Model.UserId, "Placeholder")
     <div class="list-group-item-action col-sm-3 target">
@@ -44,6 +40,6 @@
 
     <div class="col-sm-1 target">
         <a style="visibility:hidden">Delete:</a>
-        <button id="Btn_DeleteExpense" type="submit" style="height: 30px; width: 30px; background-color: red; background-size: 100%"
+        <button id="Btn_DeleteExpense" type="submit" style="height: 30px; width: 30px; background-color: red; background-size: 100%"></button>
     </div>
 </div>

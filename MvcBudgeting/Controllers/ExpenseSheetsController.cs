@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Identity.Client;
 using MvcBudgeting.Models;
 using MvcBudgeting.Models.Context;
 
@@ -26,7 +27,7 @@ namespace MvcBudgeting.Controllers
         //}
         public IActionResult Index()
         {
-            return View(new ExpenseSheet());
+            return View(new List<ExpenseSheet>());
         }
 
         // GET: ExpenseSheets/Details/5
@@ -158,9 +159,14 @@ namespace MvcBudgeting.Controllers
             return _context.ExpenseSheets.Any(e => e.Id == id);
         }
 
-        public ActionResult DisplayNewExpense()
+        public IActionResult DisplayNewExpense()
         {
-            return PartialView("_Expense");
+            return PartialView("/Views/ExpenseSheets/_Expense.cshtml", new ExpenseSheet());
+        }
+
+        public IActionResult TestPartial()
+        {
+            return PartialView("/Views/ExpenseSheets/_Test.cshtml");
         }
     }
 }
