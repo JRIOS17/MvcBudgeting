@@ -37,10 +37,7 @@
                 <div id="ExpenseHeaderClass"></div>
             } *@
             <div id="expenseList">
-
             </div>
-
-            <partial name="_Test.cshtml" />
 
             <div>
                 <button class="button" id="btn_addExpense">Add a new Expense</button>
@@ -50,29 +47,6 @@
 
 @section Scripts {
     <script>
-        //Test to load the Testing partial view that worked
-        // $('#btn_addExpense').on('click', function(e){
-        //     $.ajax({
-        //         url: '/ExpenseSheets/TestPartial',
-        //         type: 'GET',
-        //         dataType: "html"
-        //     }).done(function(result){
-        //         $('#expenseList').html(result);
-        //     }).fail(function(xhr){
-        //         console.log('error: ' + xhr.status);
-        //     });
-        // });
-
-        //1st attempt
-        // $(document).on('click', '#btn_addExpense', function (e){
-        //     $.ajax({
-        //         url: '/ExpenseSheets/DisplayNewExpense',
-        //         success: function(partialView){
-        //             $('#ExpenseHeaderClass').append(partialView);
-        //         }
-        //     })
-        // })
-
         //METHOD THAT WORKS!!! FOR NOW....
         $('#btn_addExpense').on('click', function(e){
             $.ajax({
@@ -82,90 +56,8 @@
             }).done(function(result){
                 $('#expenseList').append(result);
             }).fail(function(xhr){
-                console.log('error: ' + xhr.status);
+                console.log('error: ' + xhr.status + ' - ' + xhr.responseText);
             });
         });
-
-        //2nd attempt
-        // $('#btn_addExpense').click(function() {
-        //     $('#expenseList').append('/ExpenseSheets/TestPartial');
-        // })
-
-        //3rd attempt
-        // var url = '@Url.Action("TestPartial", "ExpenseSheets")'
-        // $('#btn_addExpense').on('click', function() {
-        //     $('#expenseList').load(url)
-        // });
-
-        //4th attempt
-        // $('#btn_addExpense').click(function() {
-        //     $('#expenseList').load('/ExpenseSheets/TestPartial');
-        // })
-
-        //5th attempt
-        // const button = document.getElementById("btn_addExpense");
-        // button.onclick = function(){
-        //     $('#expenseList').load(url)
-        // };
-
     </script>
 }
-
-@* <p>
-    <a asp-action="Create">Create New Expense Record</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.UserId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ExpenseDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ExpenseCategory)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ExpenseSubCategory)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ExpenseAmount)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ExpenseItem)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.UserId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ExpenseDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ExpenseCategory)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ExpenseSubCategory)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ExpenseAmount)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ExpenseItem)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
- *@

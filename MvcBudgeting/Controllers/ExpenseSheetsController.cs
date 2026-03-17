@@ -161,12 +161,7 @@ namespace MvcBudgeting.Controllers
 
         public IActionResult DisplayNewExpense()
         {
-            return PartialView("/Views/ExpenseSheets/_Expense.cshtml", new ExpenseSheet());
-        }
-
-        public IActionResult TestPartial()
-        {
-            return PartialView("/Views/ExpenseSheets/_Test.cshtml");
+            return PartialView("/Views/Shared/_Expense.cshtml", new ExpenseSheet());
         }
     }
 }
